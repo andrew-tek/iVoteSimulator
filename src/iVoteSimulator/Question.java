@@ -1,14 +1,14 @@
 package iVoteSimulator;
-
 import java.util.List;
+
 
 public abstract class Question {
 	private String question;
-	private List <String> answers;
+	protected List <String> answers;
 	
 	public abstract int getNumberOfAnswer();
 	
-	private void addPossibleAnswer(String answer) {
+	void addPossibleAnswer(String answer) {
 		answers.add(answer);
 	}
 	public String getQuestion() {
@@ -22,5 +22,15 @@ public abstract class Question {
 	}
 	public void setAnswers(List<String> answers) {
 		this.answers = answers;
+	}
+	@Override
+	public String toString() {
+		StringBuilder str = new StringBuilder();
+		str.append(question + "\n");
+		for (int i = 0; i < answers.size(); i++) {
+			str.append((i + 1) + ". " + answers.get(i) + "\n");
+		}
+		
+		return str.toString();
 	}
 }

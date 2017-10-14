@@ -5,7 +5,6 @@ public class MultipleChoiceAnswer extends Question{
 	@Override
 	public int getNumberOfAnswer() {
 		return this.getAnswers().size();
-		return 0;
 	}
 
 

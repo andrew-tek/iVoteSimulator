@@ -18,12 +18,13 @@ public class Student implements Participant {
 		studentID = id;
 		answer = new ArrayList<Character>();
 	}
-	public String getStudentID() {
+	public String getId() {
 		return studentID;
 	}
 	public void setStudentID(String studentID) {
 		this.studentID = studentID;
 	}
+	@Override
 	public List<Character> getAnswer() {
 		return answer;
 	}
