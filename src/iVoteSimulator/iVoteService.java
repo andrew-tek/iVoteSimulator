@@ -49,11 +49,9 @@ public class iVoteService {
 			String id = participants.get(i).getId();
 			if (!studentsSet.contains(id)) {
 				studentsSet.add(id);
-				for (int j = 0; j < question.getNumberOfAnswer(); j++) {
-					if (participants.get(i).getAnswer().get(j) != null) {
+				for (int j = 0; j < participants.get(i).getAnswer().size(); j++) {
 						int insert = Integer.valueOf(participants.get(i).getAnswer().get(j));
 						answers[insert]++;
-					}
 				}
 			}
 		}
