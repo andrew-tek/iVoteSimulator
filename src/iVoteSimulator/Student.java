@@ -6,17 +6,17 @@ import java.util.List;
 
 public class Student implements Participant {
 	private String studentID;
-	private List<Character> answer;
+	private List<String> answer;
 	public Student() {
 		studentID = "";
-		answer = new ArrayList<Character>();
+		answer = new ArrayList<String>();
 	}
-	public void addAnswer (char ans) {
+	public void addAnswer (String ans) {
 		answer.add(ans);
 	}
 	public Student(String id) {
 		studentID = id;
-		answer = new ArrayList<Character>();
+		answer = new ArrayList<String>();
 	}
 	public String getId() {
 		return studentID;
@@ -25,10 +25,10 @@ public class Student implements Participant {
 		this.studentID = studentID;
 	}
 	@Override
-	public List<Character> getAnswer() {
+	public List<String> getAnswer() {
 		return answer;
 	}
-	public void setAnswer(List<Character> answer) {
+	public void setAnswer(List<String> answer) {
 		this.answer = answer;
 	}
 	@Override

@@ -14,7 +14,10 @@ public class iVoteService {
 	public iVoteService(Question q) {
 		question = q;
 		participants = new ArrayList<Participant>();
-		answers = new int [q.getNumberOfAnswer()];
+		answers = new int [q.getAnswers().size()];
+		for (int i = 0; i < answers.length; i++) {
+			answers[i] = 0;
+		}
 	}
 	public Question getQuestion() {
 		return question;
@@ -48,14 +51,15 @@ public class iVoteService {
 				studentsSet.add(id);
 				for (int j = 0; j < question.getNumberOfAnswer(); j++) {
 					if (participants.get(i).getAnswer().get(j) != null) {
-						System.out.println(participants.get(i).getAnswer().get(j));
-						answers[participants.get(i).getAnswer().get(j)]++;
+						int insert = Integer.valueOf(participants.get(i).getAnswer().get(j));
+						answers[insert]++;
 					}
 				}
 			}
 		}
 		for (int i = 0; i < answers.length; i++) {
-			System.out.println(i + ": " + answers[i]);
+			int actual = i + 1;
+			System.out.println(actual + ": " + answers[i]);
 		}
 	}
 

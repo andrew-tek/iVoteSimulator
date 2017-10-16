@@ -1,10 +1,13 @@
 package iVoteSimulator;
 
+import java.util.Random;
+
+import javax.swing.text.StyledDocument;
+
 public class SimulationDriver {
 
 	public static void main(String[] args) {
 		Question question = new SingleChoiceAnswer();
-		
 		int id = 1;
 		question.setQuestion("What is your favorite number?");
 		question.addPossibleAnswer("one");
@@ -16,17 +19,17 @@ public class SimulationDriver {
 		question.addPossibleAnswer("seven");
 		question.addPossibleAnswer("eight");
 		System.out.println(question.toString());
-		Student student = new Student("1");
+		Random random = new Random();
+		int numberOfStudent = random.nextInt(50) + 30;
+		System.out.println(numberOfStudent);
+		System.out.println("Number of students: " + numberOfStudent);
 		iVoteService voteService = new iVoteService(question);
-		student.addAnswer('1');
-		student.submitAnswer(voteService);
-		student.submitAnswer(voteService);
-		student = new Student("2");
-		student.addAnswer('2');
-		student.submitAnswer(voteService);
-		System.out.println(voteService.getParticipants().get(0).getAnswer().get(0));
-		System.out.println(voteService.getParticipants().get(1).getAnswer().get(0));
-		System.out.println(voteService.getParticipants().get(2).getAnswer().get(0));
+		for (int i = 0; i < numberOfStudent; i++) {
+			Student student = new Student(Integer.toString(i));
+			int studentAnswer = random.nextInt(question.getAnswers().size());
+			student.addAnswer(Integer.toString(studentAnswer));
+			student.submitAnswer(voteService);
+		}
 		voteService.getStats();
 
 		
